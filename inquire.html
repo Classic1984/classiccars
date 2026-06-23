@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inquire About a Car — Classic Cars</title>
+<meta name="description" content="Ask about a vehicle on the Classic Cars lot in Port Harcourt. We'll get back to you with details and availability." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .inquire-shell {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--garage-2);
+    border: 1px solid rgba(217, 119, 46, 0.25);
+    border-radius: 6px;
+    padding: 34px;
+  }
+  .form-row { margin-bottom: 20px; }
+  .form-row label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--chrome-dim);
+    margin-bottom: 8px;
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    background: var(--garage);
+    border: 1px solid rgba(242, 239, 230, 0.15);
+    border-radius: 4px;
+    padding: 12px 14px;
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+  }
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(217, 119, 46, 0.2);
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  #form-status { margin-top: 16px; font-family: var(--font-mono); font-size: 0.85rem; }
+  #form-status.success { color: #7fc97f; }
+  #form-status.error { color: var(--amber-bright); }
+  @media (max-width: 560px) {
+    .two-col { grid-template-columns: 1fr; }
+    .inquire-shell { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="index.html"><span class="badge"></span>Classic Cars</a>
+    <nav class="primary-nav">
+      <a href="index.html#lot">The Lot</a>
+      <a href="index.html#trust">Why Us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a class="btn btn-ghost" href="index.html">← Back to Lot</a>
+  </div>
+</header>
+<div class="hazard-divider"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin: 0 auto 36px; text-align: center; max-width: 560px;">
+      <p class="eyebrow">Inquiry</p>
+      <h2 class="section-title">Ask about a car</h2>
+      <p>Tell us which vehicle you're interested in. We'll get back to you with full details and to arrange a viewing.</p>
+    </div>
+
+    <div class="inquire-shell">
+      <form id="inquiry-form">
+        <input type="hidden" name="access_key" value="a6363bad-eb4c-42dd-85a3-a13a1c037e6a">
+        <input type="hidden" name="subject" value="New Car Inquiry — Classic Cars">
+        <input type="hidden" name="from_name" value="Classic Cars Website">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="two-col">
+          <div class="form-row">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="car">Car You're Interested In</label>
+          <input type="text" id="car" name="car" placeholder="e.g. Toyota Camry (2014)" required>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Anything else we should know? (optional)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Budget, preferred viewing time, financing questions, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;" id="submit-btn">Send Inquiry</button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-divider"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Classic Cars</h5>
+        <p>Quality used vehicles, inspected and sold in Port Harcourt.</p>
+      </div>
+      <div>
+        <h5>Hours</h5>
+        <ul>
+          <li>Mon – Sat: 8:00am – 6:00pm</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>classicdrivingschool112@gmail.com</li>
+          <li><a href="tel:+2348068878663">0806 887 8663</a></li>
+          <li><a href="tel:+2348094760609">0809 476 0609</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Classic Cars, Port Harcourt.</div>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById('inquiry-form');
+const status = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+
+// Pre-fill car name from URL parameter, e.g. inquire.html?car=Toyota+Camry
+const params = new URLSearchParams(window.location.search);
+const carParam = params.get('car');
+if (carParam) {
+  document.getElementById('car').value = carParam;
+}
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  status.className = '';
+  status.textContent = '';
+
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      status.className = 'success';
+      status.textContent = "Inquiry sent! We'll get back to you shortly.";
+      form.reset();
+    } else {
+      status.className = 'error';
+      status.textContent = result.message || 'Something went wrong. Please try again or call us directly.';
+    }
+  } catch (error) {
+    status.className = 'error';
+    status.textContent = 'Network error — please check your connection and try again.';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Inquiry';
+  }
+});
+</script>
+
+</body>
+</html>
